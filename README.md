@@ -6,9 +6,10 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/server-
 
 ## Projectdocumentatie
 
-* [FDND-agency Design challenge](https://github.com/fdnd-agency/milledoni/wiki/Design-Challenge)
+* [API Endpoint](https://fdnd-agency.directus.app/items/milledoni_products)
+* [Resources](https://github.com/fdnd-agency/milledoni/wiki/Design-Challenge#resources)
 * [FDND-agency GitHub](https://github.com/fdnd-agency/milledoni)
-* [Milledoni FDND site](https://milledoni.dev.fdnd.nl/?page=1)
+* [Milledoni FDND website](https://milledoni.dev.fdnd.nl/?page=1)
 * [Milledoni website](https://milledoni.nl/)
 * [Interface Inventory voorbeeld](https://www.figma.com/design/nCBX4Dgea2Y5xPcQcvcbkm/Interface-Inventory?node-id=43-15)
 
