@@ -4,6 +4,13 @@ Ontwerp en ontwikkel een server-side website voor een opdrachtgever
 
 De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/server-side-rendering-server-side-website/blob/main/docs/INSTRUCTIONS.md)
 
+## Projectdocumentatie
+
+* [FDND-agency Design challenge](https://github.com/fdnd-agency/milledoni/wiki/Design-Challenge)
+* [FDND-agency GitHub](https://github.com/fdnd-agency/milledoni)
+* [Milledoni FDND site](https://milledoni.dev.fdnd.nl/?page=1)
+* [Milledoni website](https://milledoni.nl/)
+* [Interface Inventory voorbeeld](https://www.figma.com/design/nCBX4Dgea2Y5xPcQcvcbkm/Interface-Inventory?node-id=43-15)
 
 ## Inhoudsopgave
 
