@@ -6,16 +6,15 @@ import express from 'express'
 import { Liquid } from 'liquidjs';
 
 
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
 // Doe een fetch naar de data die je nodig hebt
-const apiResponse = await fetch('https://fdnd-agency.directus.app/items/milledoni_products' + new URLSearchParams)
+const apiResponse = await fetch('https://fdnd-agency.directus.app/items/milledoni_products?' + new URLSearchParams)
 
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 const apiResponseJSON = await apiResponse.json()
 
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
-console.log(apiResponseJSON)
+// console.log(apiResponseJSON)
 
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
@@ -37,10 +36,43 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
+// HOMEPAGE
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
    response.render('index.liquid')
+})
+
+// PRODUCTENOVERZICHT MET FILTERS
+app.get('/producten', async function (request, response) {
+
+  console.log('Route /producten wordt aangeroepen')
+
+  // Haal alle producten op uit de API door een object te maken
+  const productParams = {
+    // Sorteer op naam A - Z
+    'sort': 'name'
+  }
+
+  // Data ophalen met de API van Milledoni
+  const productResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/milledoni_products?' +
+    new URLSearchParams(productParams)
+  )
+
+  // CHECK OF API WERKT
+  // console.log(productResponse.status)
+
+  const productResponseJSON = await productResponse.json()
+  // CHECK VOOR JSON DATA
+  console.log(productResponseJSON)
+
+  // Haalt lijst met de producten eruit
+  const productData = productResponseJSON.data
+
+  response.render('index.liquid', {
+    products: productData
+  })
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen

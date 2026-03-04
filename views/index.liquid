@@ -1,1 +1,16 @@
-Succes!
+{% render 'partials/head.liquid' %}
+
+<main>
+    {% for product in products %}
+        <p>{{ product.name }}</p>
+        <p>€ {{ product.amount }}</p>
+    {% endfor %}
+</main>
+
+{% comment %} JSON DATA {% endcomment %}
+<details><summary>Data</summary><pre>
+    {% for product in products %}
+        {{ product | json:4 }}
+    {% endfor %}   
+</pre></details>
+</body>
