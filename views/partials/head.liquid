@@ -4,13 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milledoni</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="styles/style.css">
   </head>
 
   <body>
     <header>
-        <a href="/">
-            <img src="assets/logo.svg" alt="Milledoni logo">
-        </a>
+      <nav class="nav">
         
-    </header>
+        <a href="/" class="logo">
+          <img src="/assets/mobile-logo.svg" alt="Milledoni home" width="30" height="30">
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="/cadeaus">Cadeau's</a></li>
+          <li><a href="/categorieën">Categorieën</a></li>
+        </ul>
+
+<form method="GET" action="/" class="search-bar">
+
+  <div class="search-field">
+    <label for="search">Naam</label>
+    <input
+      type="search"
+      id="search"
+      name="search"
+      placeholder="Zoek product"
+    >
+  </div>
+
+  <div class="search-field">
+    <label for="age">Leeftijd</label>
+    <select id="age" name="age">
+      <option value="">Alle leeftijden</option>
+      <option value="0-2">0–2 jaar</option>
+      <option value="3-5">3–5 jaar</option>
+      <option value="6-8">6–8 jaar</option>
+      <option value="9+">9+ jaar</option>
+    </select>
+  </div>
+
+  <div class="search-field">
+    <label for="price">Prijs</label>
+    <select id="price" name="price">
+      <option value="">Alle prijzen</option>
+      <option value="0-10">€0–10</option>
+      <option value="10-25">€10–25</option>
+      <option value="25-50">€25–50</option>
+      <option value="50+">€50+</option>
+    </select>
+  </div>
+
+  <button type="submit">Zoek</button>
+
+</form>
+    </nav>
+  </header>

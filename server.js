@@ -35,18 +35,20 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// Maak een GET route voor de index (meestal doe je dit in de root, als /)
-// HOMEPAGE
+// // Maak een GET route voor de index (meestal doe je dit in de root, als /)
+// // HOMEPAGE
+// app.get('/', async function (request, response) {
+//    // Render index.liquid uit de Views map
+//    // Geef hier eventueel data aan mee
+//    response.render('index.liquid')
+// })
+
+// HOME/PRODUCTENOVERZICHT MET FILTERS
 app.get('/', async function (request, response) {
-   // Render index.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-   response.render('index.liquid')
-})
-
-// PRODUCTENOVERZICHT MET FILTERS
-app.get('/producten', async function (request, response) {
-
   console.log('Route /producten wordt aangeroepen')
+
+  // Haal het geen wat ingevroerd wordt in de searchbar op
+  const search = request.query.search
 
   // Haal alle producten op uit de API door een object te maken
   const productParams = {
@@ -54,6 +56,14 @@ app.get('/producten', async function (request, response) {
     'sort': 'name'
   }
 
+  if (search) {
+    // Voeg een filter toe aan de API query
+    // Directus zoekt dan producten waarvan de naam de zoekterm bevat
+    // _contains betekent: tekst komt ergens in de naam voor
+    productParams['filter[name][_contains]'] = search
+  }
+
+  // Fetch request naar de Directus API
   // Data ophalen met de API van Milledoni
   const productResponse = await fetch(
     'https://fdnd-agency.directus.app/items/milledoni_products?' +
