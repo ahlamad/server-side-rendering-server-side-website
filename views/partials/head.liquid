@@ -16,8 +16,12 @@
         </a>
 
         <ul class="nav-links">
-          <li><a href="/cadeaus">Cadeau's</a></li>
-          <li><a href="/categorieën">Categorieën</a></li>
+          <li>
+            <a href="/" class="{% if currentPath == '/' %}active{% endif %}">cadeaus</a>
+          </li>
+          <li>
+            <a href="/categorieen" class="{% if currentPath == '/categorieen' %}active{% endif %}">categorieën</a>
+          </li>
         </ul>
 
 <form method="GET" action="/" class="search-bar">

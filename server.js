@@ -35,17 +35,9 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// // Maak een GET route voor de index (meestal doe je dit in de root, als /)
-// // HOMEPAGE
-// app.get('/', async function (request, response) {
-//    // Render index.liquid uit de Views map
-//    // Geef hier eventueel data aan mee
-//    response.render('index.liquid')
-// })
-
-// HOME/PRODUCTENOVERZICHT MET FILTERS
+// HOME/PRODUCTENOVERZICHT
 app.get('/', async function (request, response) {
-  console.log('Route /producten wordt aangeroepen')
+  console.log('Route / wordt aangeroepen')
 
   // Haal het geen wat ingevroerd wordt in de searchbar op
   const search = request.query.search
@@ -81,7 +73,17 @@ app.get('/', async function (request, response) {
   const productData = productResponseJSON.data
 
   response.render('index.liquid', {
-    products: productData
+    products: productData,
+    currentPath: request.path
+  })
+})
+
+// CATEGORIEËNPAGINA
+app.get('/categorieen', async function (request, response){
+
+
+  response.render('index.liquid', {
+    currentPath: request.path
   })
 })
 
