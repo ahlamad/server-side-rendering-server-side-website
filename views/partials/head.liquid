@@ -12,32 +12,33 @@
       <nav class="nav">
         
         <a href="/" class="logo">
-          <img src="/assets/mobile-logo.svg" alt="Milledoni home" width="30" height="30">
+          <img src="/assets/mobile-logo.svg" alt="Milledoni home" width="40" height="40">
         </a>
 
         <ul class="nav-links">
           <li>
-            <a href="/" class="{% if currentPath == '/' %}active{% endif %}">cadeaus</a>
+            <a href="/" class="{% if currentPath == '/' %}active{% endif %}">Cadeau's</a>
           </li>
           <li>
-            <a href="/categorieen" class="{% if currentPath == '/categorieen' %}active{% endif %}">categorieën</a>
+            <a href="/categorieen" class="{% if currentPath == '/categorieen' %}active{% endif %}">Categorieën</a>
           </li>
         </ul>
 
 <form method="GET" action="/" class="search-bar">
-
-  <div class="search-field">
-    <label for="search">Naam</label>
+  <ul class="filter-search">
+    <li class="search-field">
+    <label for="search" class="visually-hidden">Naam</label>
     <input
       type="search"
       id="search"
       name="search"
-      placeholder="Zoek product"
+      placeholder="Zoek jouw cadeau"
     >
-  </div>
+    </li>
 
-  <div class="search-field">
-    <label for="age">Leeftijd</label>
+    <div class="age-and-price-filters">
+  <li class="search-field">
+    <label for="age" class="visually-hidden">Leeftijd</label>
     <select id="age" name="age">
       <option value="">Alle leeftijden</option>
       <option value="0-2">0–2 jaar</option>
@@ -45,10 +46,10 @@
       <option value="6-8">6–8 jaar</option>
       <option value="9+">9+ jaar</option>
     </select>
-  </div>
+  </li>
 
-  <div class="search-field">
-    <label for="price">Prijs</label>
+  <li class="search-field">
+    <label for="price" class="visually-hidden">Prijs</label>
     <select id="price" name="price">
       <option value="">Alle prijzen</option>
       <option value="0-10">€0–10</option>
@@ -56,10 +57,11 @@
       <option value="25-50">€25–50</option>
       <option value="50+">€50+</option>
     </select>
+  </li>
   </div>
 
-  <button type="submit">Zoek</button>
-
+  <button name="button" type="submit">Zoeken</button>
+</ul>
 </form>
     </nav>
   </header>

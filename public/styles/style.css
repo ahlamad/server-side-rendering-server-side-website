@@ -2,77 +2,160 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  font-family:'Parkinsans';
+}
+
+/* PARKINSANS REGULAR */
+@font-face {
+    font-family: 'Parkinsans';
+    src: url('../fonts/Parkinsans-Regular.ttf');
+    font-weight: 400;
 }
 
 body {
+  width: 100%;
   line-height: 1.5;
-  padding: 1em;
+}
+
+main {
+    padding: 1em;
 }
 
 /* NAV */
 .nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2em;
   flex-wrap: wrap;
 }
 
 .nav-links {
   display: flex;
-  gap: 1rem;
-  font-size: 1.4em;
+  gap: 1em;
+  font-size: 2em; 
+  grid-area: links;
+  justify-content: center;
 
   a {
     color: black;
     text-decoration: none;
+
+    &:hover {
+      color: #466EBF;
+      font-weight: bolder;
+    }
   }
 }
 
 .nav-links a.active {
   font-weight: bold;
-  color: red;
+  padding-bottom: .3em;
+  color: #E2B100;
+  border-bottom: 3px solid #E2B100;
 }
 
-.search-bar {
-  display: flex;
+.nav {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "logo search"
+    "links links";
   align-items: center;
-  gap: 1em;
-  border: 1px solid #d9d4d4;
-  border-radius: 400px;
-  padding: 1em;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.search-field {
+.logo {
+  grid-area: logo;
+  padding: 1em;
+}
+
+.filter-search {
   display: flex;
   flex-direction: column;
+  gap: .8em;
+  padding: 1em;
+  container-type: inline-size;
+  container-name: searcher;
+
+  li {
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-areas:
+			"search-bar search-bar"
+			"age price button"
+			;
+  }
+
+  button {
+  padding: .8em;  
+  cursor: pointer;
+  background-color: #E2B100;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  width: 30%;
+  place-self: center;
+}
 }
 
-.search-field label {
-  font-size: .75rem;
-  font-weight: 600;
+#search {
+  border: 1px solid #F9F2D4;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-radius: 400px;
+  grid-area: search-bar;
+  outline: none;
+
+  &::placeholder {
+    color: #E2B100;
+    text-shadow:
+      1px 1px 3px #F9F2D4;
+  }
+
+  &:focus {
+    border: 4px solid #F9F2D4;
+    border-color: #F9F2D4;
+  }
 }
 
-.search-field input,
+.age-and-price-filters {
+  display: grid;
+  place-self: center;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "age price"
+  ;
+  gap: 1em;
+}
+
+#age {
+  grid-area: age;
+}
+
+#price {
+  grid-area: price;
+}
+
+.search-field input {
+  width: 80%;
+  padding: 1em;
+  font-size: 16px;
+}
+
 .search-field select {
   border: none;
-}
-
-.search-bar button {
-  padding: 1em;  
   cursor: pointer;
 }
 
 /* FILTERS */
 .filters {
-  margin-block: 2rem;
+  margin-block: 2em;
 }
 
 .filter-form {
   display: flex;
   gap: 1rem;
+  width: 100%;
   flex-wrap: wrap;
 }
 
