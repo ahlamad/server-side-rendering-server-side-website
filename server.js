@@ -82,7 +82,7 @@ app.get('/', async function (request, response) {
 app.get('/categorieen', async function (request, response){
 
 
-  response.render('index.liquid', {
+  response.render('categorieen.liquid', {
     currentPath: request.path
   })
 })

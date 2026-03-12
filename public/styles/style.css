@@ -49,9 +49,9 @@ main {
 
 .nav-links a.active {
   font-weight: bold;
-  padding-bottom: .3em;
+  padding-bottom: .2em;
   color: #E2B100;
-  border-bottom: 3px solid #E2B100;
+  border-bottom: 3.5px solid #E2B100;
 }
 
 .nav {
@@ -118,6 +118,8 @@ main {
   &:focus {
     border: 4px solid #F9F2D4;
     border-color: #F9F2D4;
+    color: #466EBF;
+    font-weight: bolder;
   }
 }
 
