@@ -41,6 +41,8 @@ app.get('/', async function (request, response) {
 
   // Haal het geen wat ingevroerd wordt in de searchbar op
   const search = request.query.search
+  const min = request.query.min
+  const max = request.query.max
 
   // Haal alle producten op uit de API door een object te maken
   const productParams = {
@@ -48,11 +50,21 @@ app.get('/', async function (request, response) {
     'sort': 'name'
   }
 
+  // ZOEKBALK
   if (search) {
     // Voeg een filter toe aan de API query
     // Directus zoekt dan producten waarvan de naam de zoekterm bevat
     // _contains betekent: tekst komt ergens in de naam voor
     productParams['filter[name][_contains]'] = search
+  }
+
+  // MINIMAAL EN MAXIMAAL BEDRAG FILTER
+  if (min) {
+    productParams['filter[amount][_gte]'] = min
+  }
+
+  if (max) {
+    productParams['filter[amount][_lte]'] = max
   }
 
   // Fetch request naar de Directus API
