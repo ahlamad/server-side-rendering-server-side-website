@@ -159,9 +159,13 @@ main {
 
 .filter-form {
   display: flex;
-  gap: 1rem;
+  gap: 2em;
   width: 100%;
-  flex-wrap: wrap;
+
+  input[type="number"]{
+    border-radius: 10px;
+    width: 30px;
+  }
 }
 
 /* PRODUCT GRID */
